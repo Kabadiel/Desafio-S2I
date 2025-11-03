@@ -32,7 +32,7 @@ function doPost(e) {
 
     const eventLink = `https://calendar.google.com/calendar/r/eventedit?text=${encodeURIComponent('Visita Técnica - ' + data.empresa)}&dates=${y}${m.padStart(2,'0')}${d.padStart(2,'0')}T${h.padStart(2,'0')}${min.padStart(2,'0')}00/${y}${m.padStart(2,'0')}${d.padStart(2,'0')}T${(h+1).toString().padStart(2,'0')}${min.padStart(2,'0')}00&details=${encodeURIComponent(data.assunto + '\n\n' + data.nome + ' - ' + data.email)}&location=S2i`;
 
-    // === E-MAIL PARA O CLIENTE (SEM LOGO) ===
+    // E-MAIL PARA O CLIENTE 
     MailApp.sendEmail({
       to: data.email,
       subject: `S2i - Sua Visita Técnica Foi Agendada`,
@@ -60,7 +60,7 @@ function doPost(e) {
       `
     });
 
-    // === E-MAIL PARA O REPRESENTANTE (SEM LOGO) ===
+    //E-MAIL PARA O REPRESENTANTE 
     MailApp.sendEmail({
       to: EMAIL_REPRESENTANTE,
       subject: `NOVA SOLICITAÇÃO: ${data.empresa} - ${data.data} ${data.horario}`,
